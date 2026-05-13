@@ -49,6 +49,19 @@ const testimonials = [
 
 const clients = ['TechNova','GreenLeaf','FinEdge','SkyLine','MedTrack','PureGold','DataVault','NexGen']
 
+const heroBenefits = [
+  { label: 'Growth-first websites', icon: '🚀' },
+  { label: 'Conversion optimization', icon: '📈' },
+  { label: 'Brand-driven design', icon: '🎨' },
+  { label: 'Data-backed strategy', icon: '🧠' },
+]
+
+const resultHighlights = [
+  { stat: '320%',  caption: 'Avg. lead growth' },
+  { stat: '95%',   caption: 'Drop in bounce rate' },
+  { stat: '4.8/5', caption: 'Client satisfaction' },
+]
+
 /* ─── COMPONENT ─────────────────────────────── */
 export default function Home() {
   const heroRef = useRef(null)
@@ -66,7 +79,7 @@ export default function Home() {
           HERO
       ══════════════════════════════════════ */}
       <section className="hero" id="hero" ref={heroRef}>
-        <div className="hero__bg-grid" />
+        <div className="hero__bg-dots" />
         <div className="hero__orb hero__orb--a" />
         <div className="hero__orb hero__orb--b" />
 
@@ -85,18 +98,17 @@ export default function Home() {
             </h1>
 
             <p className="hero__desc" id="hero-desc">
-              PoleWeb engineers powerful, conversion-focused digital solutions.
-              From stunning design to robust development — we make your brand
-              unforgettable online and unstoppable in the market.
+              PoleWeb builds growth-focused digital products for businesses that want
+              more traffic, more revenue and a more memorable brand presence.
             </p>
 
             <div className="hero__ctas" id="hero-ctas">
-              <Link to="/services" className="btn-primary hero__btn-primary" id="hero-cta-main">
-                Explore Services
+              <Link to="/contact" className="btn-primary hero__btn-primary" id="hero-cta-main">
+                Schedule a Strategy Call
                 <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
               </Link>
-              <Link to="/contact" className="hero__btn-ghost" id="hero-cta-ghost">
-                Get a Free Quote
+              <Link to="/portfolio" className="hero__btn-ghost" id="hero-cta-ghost">
+                View Work
               </Link>
             </div>
 
@@ -115,6 +127,15 @@ export default function Home() {
                 <span className="hero__badge">✓ Verified Agency</span>
                 <span className="hero__badge">★ Top Rated 2025</span>
               </div>
+            </div>
+
+            <div className="hero__benefits" id="hero-benefits">
+              {heroBenefits.map(({ icon, label }) => (
+                <div key={label} className="hero__benefit-card">
+                  <span className="hero__benefit-icon">{icon}</span>
+                  <p>{label}</p>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -184,6 +205,26 @@ export default function Home() {
           <div className="clients__logos">
             {clients.map(c => (
               <div key={c} className="clients__logo-pill">{c}</div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="results-section" id="results">
+        <div className="container results__inner">
+          <div className="results__content">
+            <span className="section-label">Proven Outcomes</span>
+            <h2 className="section-title">Design and development that moves the needle.</h2>
+            <p className="section-subtitle">
+              We deliver websites, apps, and brands that generate measurable business impact — from accelerating leads to improving user sentiment and conversions.
+            </p>
+          </div>
+          <div className="results__grid">
+            {resultHighlights.map(({ stat, caption }) => (
+              <div key={caption} className="result-card">
+                <span className="result-card__stat">{stat}</span>
+                <span className="result-card__caption">{caption}</span>
+              </div>
             ))}
           </div>
         </div>

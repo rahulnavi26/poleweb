@@ -35,6 +35,7 @@ export default function Contact() {
             Tell us about your project and we'll get back to you within 24 hours with a custom
             strategy and quote. No pressure, no obligation.
           </p>
+          <p className="page-hero__strapline">Whether you're building from scratch or scaling an existing product, let's create something remarkable together.</p>
         </div>
       </section>
 
@@ -44,10 +45,9 @@ export default function Contact() {
 
           {/* Info column */}
           <div className="contact__info">
-            <h2 className="contact__info-title">Get In Touch</h2>
+            <h2 className="contact__info-title">Reach Out Anytime</h2>
             <p className="contact__info-sub">
-              We're always excited to hear about new projects. Reach out via the form or
-              directly through any of the channels below.
+              We're excited to chat about your ideas. Connect via the form, email, phone, or stop by our office in Hyderabad.
             </p>
             <div className="contact__channels" id="contact-channels">
               {[
@@ -79,13 +79,13 @@ export default function Contact() {
             {sent ? (
               <div className="contact__success" id="contact-success">
                 <span className="contact__success-icon">✓</span>
-                <h3>Message Received!</h3>
-                <p>Thanks for reaching out. Our team will get back to you within 24 hours with a tailored response.</p>
-                <button className="btn-primary" onClick={() => setSent(false)} id="contact-send-another">Send Another</button>
+                <h3>We got your message!</h3>
+                <p>Thanks for reaching out. Our team will review your project details and get back to you within 24 hours with a personalized response.</p>
+                <button className="btn-primary" onClick={() => setSent(false)} id="contact-send-another">Send Another Message</button>
               </div>
             ) : (
               <form className="contact__form" onSubmit={handleSubmit} id="contact-form">
-                <h3 className="contact__form-title">Send Us a Message</h3>
+                <h3 className="contact__form-title">Tell Us About Your Project</h3>
                 <div className="contact__row">
                   <div className="contact__field">
                     <label htmlFor="cf-name">Full Name *</label>

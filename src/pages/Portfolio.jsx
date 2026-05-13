@@ -13,6 +13,12 @@ const projects = [
   { id: 6, title: 'SkyLine Real Estate', category: 'UI/UX', tags: ['Figma','Three.js'], color: 'linear-gradient(135deg,#4F8EF7,#00D4FF)', emoji: '🏙️', desc: 'Immersive real estate platform with 3D property tours, virtual staging, and AI price predictions.' },
 ]
 
+const metrics = [
+  { label: 'Conversion uplift', value: '28%' },
+  { label: 'Launch velocity', value: '8 weeks' },
+  { label: 'Retention lift', value: '95%' },
+]
+
 export default function Portfolio() {
   const [active, setActive] = useState('All')
 
@@ -36,6 +42,38 @@ export default function Portfolio() {
 
       <section className="portfolio-grid-section" id="portfolio-section">
         <div className="container">
+          <div className="portfolio-summary">
+            <div className="portfolio-summary__card">
+              <span className="portfolio-summary__value">{projects.length}+</span>
+              <span className="portfolio-summary__label">Featured Projects</span>
+            </div>
+            <div className="portfolio-summary__card">
+              <span className="portfolio-summary__value">{categories.length}</span>
+              <span className="portfolio-summary__label">Service Categories</span>
+            </div>
+            <div className="portfolio-summary__card">
+              <span className="portfolio-summary__value">40+</span>
+              <span className="portfolio-summary__label">Global Clients</span>
+            </div>
+          </div>
+
+          <div className="portfolio-highlights">
+            {metrics.map(({ label, value }) => (
+              <div key={label} className="portfolio-highlights__item">
+                <span className="portfolio-highlights__value">{value}</span>
+                <span className="portfolio-highlights__label">{label}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="portfolio__top">
+            <div className="portfolio__top-copy">
+              <p className="portfolio__top-label">Featured Work</p>
+              <h2 className="portfolio__top-title">Designs, platforms and brands built for conversion.</h2>
+            </div>
+            <Link to="/contact" className="btn-primary portfolio__top-cta">Share Your Brief</Link>
+          </div>
+
           {/* Filter tabs */}
           <div className="portfolio__filters" id="portfolio-filters">
             {categories.map(cat => (
@@ -50,10 +88,13 @@ export default function Portfolio() {
             ))}
           </div>
 
+          <p className="portfolio__notice">Every featured project is built to create measurable impact—faster launch cycles, stronger customer connections, and higher lifetime value.</p>
+
           {/* Projects grid */}
           <div className="portfolio__grid" id="portfolio-grid">
             {filtered.map(({ id, title, category, tags, color, emoji, desc }) => (
               <article key={id} className="project-card glass-card" id={`project-${id}`}>
+                <div className="project-card__accent" style={{ background: color }} />
                 <div className="project-card__thumb" style={{ background: color }}>
                   <span className="project-card__emoji">{emoji}</span>
                   <span className="project-card__category">{category}</span>
@@ -73,6 +114,14 @@ export default function Portfolio() {
                 </div>
               </article>
             ))}
+          </div>
+
+          <div className="portfolio__footer">
+            <div>
+              <span className="portfolio__footer-label">Want this level of quality?</span>
+              <h3 className="portfolio__footer-title">Let’s turn your next idea into a market-winning product.</h3>
+            </div>
+            <Link to="/contact" className="btn-secondary portfolio__footer-cta">Let’s Talk</Link>
           </div>
 
           {filtered.length === 0 && (

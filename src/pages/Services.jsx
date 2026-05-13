@@ -121,6 +121,29 @@ export default function Services() {
             End-to-end digital services engineered for growth, designed to impress,
             and delivered with precision. Whatever your challenge — we have the expertise.
           </p>
+          <div className="page-hero__actions">
+            <Link to="/contact" className="btn-primary page-hero__cta">Book a Consultation</Link>
+            <Link to="/portfolio" className="btn-secondary page-hero__cta">Explore Portfolio</Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="service-highlights" id="service-highlights">
+        <div className="container service-highlights__grid">
+          {[
+            { icon: '🚀', value: '150+', label: 'Successful launches' },
+            { icon: '⭐', value: '4.9/5', label: 'Client satisfaction' },
+            { icon: '📈', value: '85%', label: 'Average conversion lift' },
+            { icon: '🌐', value: '30+', label: 'Industries served' },
+          ].map(({ icon, value, label }) => (
+            <div key={label} className="service-highlight-card">
+              <div className="service-highlight-card__icon">{icon}</div>
+              <div>
+                <h3>{value}</h3>
+                <p>{label}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -156,6 +179,30 @@ export default function Services() {
               </div>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="impact-section" id="service-impact">
+        <div className="container">
+          <div className="section-header">
+            <span className="section-label">Impact Delivered</span>
+            <h2 className="section-title">Performance Metrics That Prove Our Work</h2>
+            <p className="section-subtitle">
+              We turn digital investments into measurable outcomes — faster growth, stronger conversion, and lasting business value.
+            </p>
+          </div>
+          <div className="impact-grid">
+            {[
+              { value: '4.9 / 5', label: 'Average client rating' },
+              { value: '120%', label: 'Avg. traffic uplift' },
+              { value: '3x', label: 'Revenue growth in 6 months' },
+            ].map(({ value, label }) => (
+              <div key={label} className="impact-card" id={`impact-${label.replace(/\s+/g,'-').toLowerCase()}`}>
+                <span className="impact-value">{value}</span>
+                <span className="impact-label">{label}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

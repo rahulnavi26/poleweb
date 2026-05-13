@@ -1,2 +1,20 @@
-.app { min-height: 100vh; display: flex; flex-direction: column; }
-main { flex: 1; }
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #f8faff 0%, #ffffff 40%, #f7f9ff 100%);
+}
+
+main {
+  flex: 1;
+  padding-top: var(--nav-h);
+}
+
+.glass-card {
+  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(255,255,255,0.7);
+  box-shadow: 0 28px 90px rgba(14, 30, 70, 0.08);
+  backdrop-filter: blur(18px);
+  border-radius: var(--r-lg);
+}
+

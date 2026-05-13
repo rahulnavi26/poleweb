@@ -17,6 +17,12 @@ const values = [
   { icon: '🔍', title: 'Radical Transparency', desc: 'No surprises. Clear communication, honest timelines, and open collaboration always.' },
 ]
 
+const approach = [
+  { title: 'Discover', desc: 'We begin with customer research, metrics, and business goals so every idea is built to perform.' },
+  { title: 'Design', desc: 'We turn strategy into polished interfaces, meaningful branding, and intuitive digital journeys.' },
+  { title: 'Deliver', desc: 'We launch with confidence through clean engineering, tracking, and ongoing optimization.' },
+]
+
 export default function About() {
   return (
     <div className="about-page">
@@ -33,6 +39,7 @@ export default function About() {
             We are a team of passionate designers, engineers, and strategists united by a single mission:
             to build digital solutions that create real-world impact.
           </p>
+          <p className="page-hero__strapline">From launch strategy to market growth, we help businesses turn ideas into resilient online experiences.</p>
         </div>
       </section>
 
@@ -69,6 +76,24 @@ export default function About() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Approach */}
+      <section className="about-approach" id="approach">
+        <div className="container">
+          <div className="section-header">
+            <span className="section-label">How We Work</span>
+            <h2 className="section-title">A proven process for digital growth</h2>
+          </div>
+          <div className="approach-grid">
+            {approach.map(({ title, desc }) => (
+              <div key={title} className="approach-card glass-card">
+                <h3>{title}</h3>
+                <p>{desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -111,8 +136,11 @@ export default function About() {
             ))}
           </div>
           <div className="team__cta">
-            <p className="team__cta-text">Want to join our team?</p>
-            <Link to="/contact" className="btn-primary" id="team-join-cta">We're Hiring!</Link>
+            <div>
+              <p className="team__cta-text">Want to join our team or build with us?</p>
+              <p className="team__cta-note">Whether you are a talent looking for a challenge or a brand ready to grow, we want to hear your story.</p>
+            </div>
+            <Link to="/contact" className="btn-primary" id="team-join-cta">Let's Connect</Link>
           </div>
         </div>
       </section>
